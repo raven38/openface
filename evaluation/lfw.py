@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 #
 # Copyright 2015-2016 Carnegie Mellon University
 #
@@ -256,7 +256,7 @@ def plotVerifyExp(workDir, tag):
 
     fig, ax = plt.subplots(1, 1)
 
-    openbrData = pd.read_csv("comparisons/openbr.v1.1.0.DET.csv")
+    openbrData = pd.read_csv("{}/comparisons/openbr.v1.1.0.DET.csv".format(os.path.dirname(__file__)))
     openbrData['Y'] = 1 - openbrData['Y']
     # brPlot = openbrData.plot(x='X', y='Y', legend=True, ax=ax)
     brPlot, = plt.plot(openbrData['X'], openbrData['Y'])
@@ -265,12 +265,12 @@ def plotVerifyExp(workDir, tag):
     foldPlot, meanPlot, AUC = plotOpenFaceROC(workDir, color='k')
 
     humanData = pd.read_table(
-        "comparisons/kumar_human_crop.txt", header=None, sep=' ')
+        "{}/comparisons/kumar_human_crop.txt".format(os.path.dirname(__file__)), header=None, sep=' ')
     humanPlot, = plt.plot(humanData[1], humanData[0])
     humanAUC = getAUC(humanData[1], humanData[0])
 
     deepfaceData = pd.read_table(
-        "comparisons/deepface_ensemble.txt", header=None, sep=' ')
+        "{}/comparisons/deepface_ensemble.txt".format(os.path.dirname(__file__)), header=None, sep=' ')
     dfPlot, = plt.plot(deepfaceData[1], deepfaceData[0], '--',
                        alpha=0.75)
     deepfaceAUC = getAUC(deepfaceData[1], deepfaceData[0])
@@ -281,7 +281,7 @@ def plotVerifyExp(workDir, tag):
     # baiduAUC = getAUC(baiduData[1], baiduData[0])
 
     eigData = pd.read_table(
-        "comparisons/eigenfaces-original-roc.txt", header=None, sep=' ')
+        "{}/comparisons/eigenfaces-original-roc.txt".format(os.path.dirname(__file__)), header=None, sep=' ')
     eigPlot, = plt.plot(eigData[1], eigData[0])
     eigAUC = getAUC(eigData[1], eigData[0])
 
