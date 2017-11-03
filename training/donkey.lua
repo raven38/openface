@@ -8,7 +8,7 @@
 --  of patent rights can be found in the PATENTS file in the same directory.
 --
 local gm = assert(require 'graphicsmagick')
-paths.dofile('dataset-issue-132.lua')
+paths.dofile('dataset.lua')
 paths.dofile('util.lua')
 ffi=require 'ffi'
 

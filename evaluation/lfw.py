@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 #
 # Copyright 2015-2016 Carnegie Mellon University
 #
